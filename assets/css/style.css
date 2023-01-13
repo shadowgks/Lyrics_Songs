@@ -105,3 +105,6 @@ Overrides for Tailwind CSS
 		.stripe th{
 			text-align: start;
 		}
+		.dtr-details{
+			width: 100%;
+		}
