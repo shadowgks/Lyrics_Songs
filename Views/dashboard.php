@@ -30,7 +30,7 @@
     <!-- End fontAwesome -->
     <!-- ================================ -->
     <!-- Begin style css -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="public\assets\css\style.css" />
     <!-- End style css -->
 </head>
 
