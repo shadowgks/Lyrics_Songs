@@ -613,7 +613,7 @@ $data_users = $obj_users->getAllUsers();
                                 </label>
                                 </td>
                                 <td>
-                                    <button type="button" data-modal-toggle="defaultModal"
+                                    <button type="button" data-modal-toggle="defaultModal" id="btn_edit_client"
                                         class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                         class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
@@ -671,7 +671,7 @@ $data_users = $obj_users->getAllUsers();
                                     </td>
                                     <td> '.$item['date_birthday'].' </td>
                                     <td>
-                                        <button type="button" data-modal-toggle="defaultModal"
+                                        <button type="button" data-modal-toggle="defaultModal" id="btn_edit_artist"
                                             class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
                                         <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
@@ -737,7 +737,7 @@ $data_users = $obj_users->getAllUsers();
                                 <td>'.$song['name_artist'].'</td>
                                 <td>'.$song['name_gener'].'</td>
                                 <td>
-                                    <button type="button" data-modal-toggle="defaultModal"
+                                    <button type="button" data-modal-toggle="defaultModal" id="btn_edit_song"
                                         class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
@@ -790,7 +790,7 @@ $data_users = $obj_users->getAllUsers();
                                 <td>'.$idG.'</td>
                                 <td>'.$gener['name'].'</td>
                                 <td>
-                                    <button type="button" data-modal-toggle="defaultModal"
+                                    <button type="button" data-modal-toggle="defaultModal" id="btn_edit_gener"
                                         class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
@@ -842,21 +842,21 @@ $data_users = $obj_users->getAllUsers();
                         <div id="name">
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="" 
+                            <input type="text" name="name" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="name" required="">
                         </div>
                         <div id="Fname">
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                            <input type="text" name="" 
+                            <input type="text" name="first_name" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="first name" required="">
                         </div>
                         <div id="Lname">
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
-                            <input type="text" name="" 
+                            <input type="text" name="last_name" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="last name" required="">
                         </div>
@@ -869,11 +869,11 @@ $data_users = $obj_users->getAllUsers();
                         </div>
                         <div id="gender">
                             <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <input id="bordered-radio-1" type="radio" value="0" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="bordered-radio-1" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
                             </div>
                             <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <input checked id="bordered-radio-2" type="radio" value="1" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="bordered-radio-2" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
                             </div>
                         </div>
@@ -894,7 +894,7 @@ $data_users = $obj_users->getAllUsers();
                         <div id="picture">
                             <label for="picture"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Picture</label>
-                                <input name="" id="picture" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                                <input name="picture" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
                                 id="file_input" type="file" accept=".jpg,.jpeg,.png" required="">
                         </div>
                         <div id="gener">
@@ -918,21 +918,21 @@ $data_users = $obj_users->getAllUsers();
                         <div id="birthday_date">
                             <label for="brand"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date Birthday</label>
-                            <input type="date" name=""
+                            <input type="date" name="date_birthday"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="date birthday" required="">
                         </div>
                         <div id="release_date">
                             <label for="brand"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Release Date</label>
-                            <input type="date" name=""
+                            <input type="date" name="release_date"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="date release" required="">
                         </div>
                         <div class="sm:col-span-2" id="descriprion">
                             <label for="description"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lyrics</label>
-                            <textarea id="description" rows="10"
+                            <textarea id="description" rows="10" name="lyrics"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Write product description here"></textarea>
                         </div>
@@ -963,7 +963,7 @@ $data_users = $obj_users->getAllUsers();
                 </button>
                 <div class="p-6 text-center">
                     <svg aria-hidden="true" class="mx-auto mb-4 text-gray-400 w-14 h-14 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this product?</h3>
+                    <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are you sure you want to delete this item?</h3>
                     <button data-modal-hide="popup-modal" type="button" class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                         Yes, I'm sure
                     </button>
