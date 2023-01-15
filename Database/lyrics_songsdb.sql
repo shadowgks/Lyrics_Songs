@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 15, 2023 at 03:37 PM
+-- Generation Time: Jan 15, 2023 at 09:17 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -101,19 +101,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
   `firstName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `lastName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `date_birthday` date NOT NULL,
+  `gender` tinyint(1) NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `picture` text COLLATE utf8mb4_bin NOT NULL,
   `rool` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `picture`, `rool`) VALUES
-(1, 'saad', 'moumou', 'saad@gmail.com', '[value-5]', '[value-6]', 1);
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Constraints for dumped tables
