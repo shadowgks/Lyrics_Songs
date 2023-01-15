@@ -89,7 +89,7 @@ Overrides for Tailwind CSS
 		}
 
 		/* MyEDITE */
-		#recipients, #recipients table tr, .dataTables_length label, #example2_filter, #example2_info, #example_filter, #example_info{
+		#recipients, #recipients table tr, .dataTables_length label, #example1_filter, #example1_info, #example2_filter, #example2_info,#example3_filter, #example3_info,#example4_filter, #example4_info, #example_filter, #example_info{
 			background-color: #1f2937;
 			color: #fff;
 		}

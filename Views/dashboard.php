@@ -574,15 +574,15 @@ $data_users = $obj_users->getAllUsers();
                         <hr
                             class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
-                    <button type="button" data-modal-toggle="defaultModal"
-                        class="text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    <button type="button" data-modal-toggle="defaultModal" id="btn_client_add"
+                        class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                         ADD CLIENTS
                     </button>
                 </div>
 
                 <!--B DATATABLE -->
                 <div id="recipients" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="example" class="stripe hover" style="width: 100%; padding-top: 1em; padding-bottom: 1em">
+                    <table id="example1" class="stripe hover" style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
                             <tr class="uppercase">
                                 <th data-priority="1">id</th>
@@ -598,11 +598,11 @@ $data_users = $obj_users->getAllUsers();
                             foreach($data_users as $user){
                             $is_admin = $user['rool'] == 1 ? 'checked' : '';
                             $rool_name = $user['rool'] == 1 ? 'Admin' : 'User';
-                            echo '<tr>
-                                <input type="hidden" value="'.$user['id'].'">
+                            echo '<input type="hidden" value="'.$user['id'].'">
+                                <tr>
                                 <td>'.$idU.'</td>
                                 <td class="md:flex items-center">
-                                    <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2 font-bold">'.$user['firstName'].' '.$user['lastName'].'</span>
+                                    <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2">'.$user['firstName'].' '.$user['lastName'].'</span>
                                 </td>
                                 <td>'.$user['email'].'</td>
                                 <td>
@@ -614,7 +614,7 @@ $data_users = $obj_users->getAllUsers();
                                 </td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal"
-                                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
+                                        class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                         class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                                         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -640,8 +640,8 @@ $data_users = $obj_users->getAllUsers();
                         <hr
                             class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
-                    <button type="button" data-modal-toggle="defaultModal"
-                        class="text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    <button type="button" data-modal-toggle="defaultModal" id="btn_artist_add"
+                        class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                         ADD ARTISTS
                     </button>
                 </div>
@@ -661,18 +661,18 @@ $data_users = $obj_users->getAllUsers();
                             <?php
                             $idA = 1;
                             foreach($data_artists AS $item){
-                                echo '<tr>
-                                    <input type="hidden" value="'.$item['id'].'">
+                                echo '<input type="hidden" value="'.$item['id'].'">
+                                    <tr>
                                     <td>
                                         '.$idA.'
                                     </td>
                                     <td class="md:flex items-center">
-                                        <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2 font-bold">'.$item['name'].'</span>
+                                        <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2">'.$item['name'].'</span>
                                     </td>
                                     <td> '.$item['date_birthday'].' </td>
                                     <td>
                                         <button type="button" data-modal-toggle="defaultModal"
-                                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
+                                            class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
                                         <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                                             class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -700,17 +700,17 @@ $data_users = $obj_users->getAllUsers();
                         <hr
                             class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
-                    <button type="button" data-modal-toggle="defaultModal"
-                        class="text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    <button type="button" data-modal-toggle="defaultModal" id="btn_song_add"
+                        class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                         ADD SONGS
                     </button>
                 </div>
                 <!--B DATATABLE -->
                 <div id="recipients" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="example2" class="stripe hover"
+                    <table id="example3" class="stripe hover"
                         style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
-                            <tr class="upercase">
+                            <tr class="uppercase">
                                 <th data-priority="1">id</th>
                                 <th data-priority="2">name</th>
                                 <th data-priority="3">release date</th>
@@ -724,13 +724,13 @@ $data_users = $obj_users->getAllUsers();
                             <?php
                             $idS = 1;
                             foreach($data_songs AS $song){
-                                echo '<tr>
-                                <input type="hidden" value="'.$song['id'].'">
+                                echo '<input type="hidden" value="'.$song['id'].'">
+                                <tr>
                                 <td>
                                     '.$idS.'
                                 </td>
                                 <td class="md:flex items-center">
-                                    <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2 font-bold">'.$song['name'].'</span>
+                                    <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2">'.$song['name'].'</span>
                                 </td>
                                 <td>'.$song['release_date'].'</td>
                                 <td>'.$song['lyrics'].'</td>
@@ -738,7 +738,7 @@ $data_users = $obj_users->getAllUsers();
                                 <td>'.$song['name_gener'].'</td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal"
-                                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
+                                        class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                                         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -765,17 +765,17 @@ $data_users = $obj_users->getAllUsers();
                         <hr
                             class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
-                    <button type="button" data-modal-toggle="defaultModal"
-                        class="text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    <button type="button" data-modal-toggle="defaultModal" id="btn_gener_add"
+                        class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                         ADD GENER
                     </button>
                 </div>
                 <!--B DATATABLE -->
                 <div id="recipients" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
-                    <table id="example2" class="stripe hover"
+                    <table id="example4" class="stripe hover"
                         style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
-                            <tr>
+                            <tr class="uppercase">
                                 <th data-priority="1">id</th>
                                 <th data-priority="2">gener</th>
                                 <th data-priority="3">Actions</th>
@@ -785,13 +785,13 @@ $data_users = $obj_users->getAllUsers();
                             <?php
                             $idG = 1;
                             foreach($data_geners AS $gener){
-                                echo '<tr>
-                                <input type="hidden" value="'.$gener['id'].'">
+                                echo '<input type="hidden" value="'.$gener['id'].'">
+                                <tr>
                                 <td>'.$idG.'</td>
                                 <td>'.$gener['name'].'</td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal"
-                                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
+                                        class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                                         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -822,7 +822,7 @@ $data_users = $obj_users->getAllUsers();
                 <div
                     class="flex justify-between items-center pb-4 mb-4 rounded-t border-b sm:mb-5 dark:border-gray-600">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                        Add Product
+                        Add
                     </h3>
                     <button type="button"
                         class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -833,62 +833,119 @@ $data_users = $obj_users->getAllUsers();
                                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
                                 clip-rule="evenodd"></path>
                         </svg>
-                        <span class="sr-only">Close modal</span>
+                        <span class="sr-only">Close</span>
                     </button>
                 </div>
                 <!-- Modal body -->
-                <form action="#">
+                <form action="#" method="post">
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                        <div>
+                        <div id="name">
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="name" id="name"
+                            <input type="text" name="" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Type product name" required="">
+                                placeholder="name" required="">
                         </div>
-                        <div>
-                            <label for="brand"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Brand</label>
-                            <input type="text" name="brand" id="brand"
+                        <div id="Fname">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
+                            <input type="text" name="" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Product brand" required="">
+                                placeholder="first name" required="">
                         </div>
-                        <div>
-                            <label for="price"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price</label>
-                            <input type="number" name="price" id="price"
+                        <div id="Lname">
+                            <label for="name"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
+                            <input type="text" name="" 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="$2999" required="">
+                                placeholder="last name" required="">
                         </div>
-                        <div>
-                            <label for="category"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category</label>
-                            <select id="category"
+                        <div id="email">
+                            <label for="email"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            <input type="text" name="email" 
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="email" required="">
+                        </div>
+                        <div id="gender">
+                            <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input id="bordered-radio-1" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="bordered-radio-1" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
+                            </div>
+                            <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
+                                <input checked id="bordered-radio-2" type="radio" value="" name="bordered-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="bordered-radio-2" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
+                            </div>
+                        </div>
+                        <div id="password">
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                            <input type="password" name="password" 
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="password" required="">
+                        </div>
+                        <div id="c_password">
+                            <label for="c_password"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme Password</label>
+                            <input type="password" name="c_password" 
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="confirme password" required="">
+                        </div>
+                        <div id="picture">
+                            <label for="picture"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Picture</label>
+                                <input name="" id="picture" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" 
+                                id="file_input" type="file" accept=".jpg,.jpeg,.png" required="">
+                        </div>
+                        <div id="gener">
+                            <label for="gener"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gener</label>
+                            <select 
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">Select category</option>
-                                <option value="TV">TV/Monitors</option>
-                                <option value="PC">PC</option>
-                                <option value="GA">Gaming/Console</option>
-                                <option value="PH">Phones</option>
+                                <option selected="" disabled>Select gener</option>
+                                <option value="">Stay</option>
                             </select>
                         </div>
-                        <div class="sm:col-span-2">
+                        <div id="artist">
+                            <label for="artist"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Artist</label>
+                            <select 
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option selected="" disabled>Select artist</option>
+                                <option value="">Stay</option>
+                            </select>
+                        </div>
+                        <div id="birthday_date">
+                            <label for="brand"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date Birthday</label>
+                            <input type="date" name=""
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="date birthday" required="">
+                        </div>
+                        <div id="release_date">
+                            <label for="brand"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Release Date</label>
+                            <input type="date" name=""
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="date release" required="">
+                        </div>
+                        <div class="sm:col-span-2" id="descriprion">
                             <label for="description"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                            <textarea id="description" rows="4"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lyrics</label>
+                            <textarea id="description" rows="10"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Write product description here"></textarea>
                         </div>
                     </div>
-                    <button type="submit"
-                        class="text-white inline-flex items-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                        <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                        Add new product
+                    <button type="submit" id="add"
+                        class="text-white inline-flex items-center bg-oranfe-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                        <i class="fa-solid fa-plus mr-2"></i>
+                        Add
+                    </button>
+                    <button type="submit" id="update"
+                        class="text-white inline-flex items-center bg-oranfe-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800">
+                        <i class="fa-solid fa-pen-to-square mr-2"></i>
+                        Update
                     </button>
                 </form>
             </div>
