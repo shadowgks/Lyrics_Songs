@@ -1,16 +1,19 @@
 <?php
 
-class Artist{
+class Song{
     //read
     static function getAll(){
-        $stm = db::connectDB()->prepare('SELECT * FROM artists');
+        $stm = db::connectDB()->prepare("SELECT s.*,a.name AS 'name_artist', g.name AS 'name_gener'
+        FROM songs s join artists a join geners g
+        on s.id_artist = a.id 
+        and s.id_gener = g.id");
         $stm->execute();
         return $stm->fetchAll();
     }
 
     //create
     static function add($data){
-        $stm = DB::connectDB()->prepare("INSERT INTO `artists`(`name`) VALUES (?)");
+        $stm = DB::connectDB()->prepare("INSERT INTO `songs`(`name`) VALUES (?)");
         $exe = $stm->execute([$data['name']]);
         if($exe){
             return true;
@@ -21,7 +24,7 @@ class Artist{
 
     //delete
     static function delete($id){
-        $stm = DB::connectDB()->prepare("DELETE FROM artists WHERE id = ?");
+        $stm = DB::connectDB()->prepare("DELETE FROM songs WHERE id = ?");
         $exe = $stm->execute([$id]);
         if($exe){
             return true;
@@ -32,7 +35,7 @@ class Artist{
 
     //update
     static function update($data){
-        $stm = DB::connectDB()->prepare("UPDATE artists set name = ? WHERE id = ?");
+        $stm = DB::connectDB()->prepare("UPDATE songs set name = ? WHERE id = ?");
         $exe = $stm->execute([$data['name'],$data['id']]);
         if($exe){
             return true;

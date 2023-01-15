@@ -1,3 +1,21 @@
+<?php
+//Artists //Read
+$obj_artists = new ArtistController();
+$data_artists = $obj_artists->getAllArtists();
+
+//Geners //Read
+$obj_geners = new GenerController;
+$data_geners = $obj_geners->getAllGeners();
+
+//Songs //Read
+$obj_songs = new SongController();
+$data_songs = $obj_songs->getAllSongs();
+
+//Clients //Read
+$obj_users = new UserController();
+$data_users = $obj_users->getAllUsers();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -566,12 +584,34 @@
                 <div id="recipients" class="p-8 mt-6 lg:mt-0 rounded shadow bg-white">
                     <table id="example" class="stripe hover" style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
-                            <tr>
-                                <th data-priority="1">Actions</th>
+                            <tr class="uppercase">
+                                <th data-priority="1">id</th>
+                                <th data-priority="2">name</th>
+                                <th data-priority="3">email</th>
+                                <th data-priority="4">rool</th>
+                                <th data-priority="5">actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <?php
+                            $idU = 1;
+                            foreach($data_users as $user){
+                            $is_admin = $user['rool'] == 1 ? 'checked' : '';
+                            $rool_name = $user['rool'] == 1 ? 'Admin' : 'User';
+                            echo '<tr>
+                                <input type="hidden" value="'.$user['id'].'">
+                                <td>'.$idU.'</td>
+                                <td class="md:flex items-center">
+                                    <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2 font-bold">'.$user['firstName'].' '.$user['lastName'].'</span>
+                                </td>
+                                <td>'.$user['email'].'</td>
+                                <td>
+                                <label class="relative inline-flex items-center mr-5 cursor-pointer">
+                                    <input type="checkbox" value="" class="sr-only peer" '.$is_admin.'>
+                                    <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-orange-300 dark:peer-focus:ring-orange-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-orange-500"></div>
+                                    <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">'.$rool_name.'</span>
+                                </label>
+                                </td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal"
                                         class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -580,7 +620,10 @@
                                         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                         class="fa-solid fa-trash"></i></button>
                                 </td>
-                            </tr>
+                            </tr>';
+                            $idU++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -607,21 +650,40 @@
                     <table id="example2" class="stripe hover"
                         style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
-                            <tr>
-                                <th data-priority="1">Actions</th>
+                            <tr class="uppercase">
+                                <th data-priority="1">id</th>
+                                <th data-priority="2">name</th>
+                                <th data-priority="3">date birthday</th>
+                                <th data-priority="4">actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <button type="button" data-modal-toggle="defaultModal"
-                                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
-                                            class="fa-solid fa-pen-to-square"></i></button>
-                                    <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
-                                            class="fa-solid fa-trash"></i></button>
-                                </td>
-                            </tr>
+                            <?php
+                            $idA = 1;
+                            foreach($data_artists AS $item){
+                                echo '<tr>
+                                    <input type="hidden" value="'.$item['id'].'">
+                                    <td>
+                                        '.$idA.'
+                                    </td>
+                                    <td class="md:flex items-center">
+                                        <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2 font-bold">'.$item['name'].'</span>
+                                    </td>
+                                    <td> '.$item['date_birthday'].' </td>
+                                    <td>
+                                        <button type="button" data-modal-toggle="defaultModal"
+                                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
+                                                class="fa-solid fa-pen-to-square"></i></button>
+                                        <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                                            class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
+                                                class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>';
+                                $idA++;
+                            }
+                            ?>
+                        
+                            
                         </tbody>
                     </table>
                 </div>
@@ -648,12 +710,32 @@
                     <table id="example2" class="stripe hover"
                         style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
-                            <tr>
-                                <th data-priority="1">Actions</th>
+                            <tr class="upercase">
+                                <th data-priority="1">id</th>
+                                <th data-priority="2">name</th>
+                                <th data-priority="3">release date</th>
+                                <th data-priority="4">lyrics</th>
+                                <th data-priority="5">Artist</th>
+                                <th data-priority="6">Gener</th>
+                                <th data-priority="7">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <?php
+                            $idS = 1;
+                            foreach($data_songs AS $song){
+                                echo '<tr>
+                                <input type="hidden" value="'.$song['id'].'">
+                                <td>
+                                    '.$idS.'
+                                </td>
+                                <td class="md:flex items-center">
+                                    <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2 font-bold">'.$song['name'].'</span>
+                                </td>
+                                <td>'.$song['release_date'].'</td>
+                                <td>'.$song['lyrics'].'</td>
+                                <td>'.$song['name_artist'].'</td>
+                                <td>'.$song['name_gener'].'</td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal"
                                         class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -662,7 +744,11 @@
                                         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                             class="fa-solid fa-trash"></i></button>
                                 </td>
-                            </tr>
+                            </tr>';
+                            $idS++;
+                            }
+                            ?>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -690,20 +776,31 @@
                         style="width: 100%; padding-top: 1em; padding-bottom: 1em">
                         <thead>
                             <tr>
-                                <th data-priority="1">Actions</th>
+                                <th data-priority="1">id</th>
+                                <th data-priority="2">gener</th>
+                                <th data-priority="3">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <?php
+                            $idG = 1;
+                            foreach($data_geners AS $gener){
+                                echo '<tr>
+                                <input type="hidden" value="'.$gener['id'].'">
+                                <td>'.$idG.'</td>
+                                <td>'.$gener['name'].'</td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal"
                                         class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                     <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
                                         class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
-                                            class="fa-solid fa-trash"></i></button>
+                                        class="fa-solid fa-trash"></i></button>
                                 </td>
-                            </tr>
+                            </tr>';
+                            $idG++;
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -835,7 +932,7 @@
     <!-- End flowbite js -->
     <!-- ================================ -->
     <!-- Begin file js -->
-    <script src="./assets/js/script.js"></script>
+    <script src="public/assets/js/script.js"></script>
     <!-- End file js -->
 </body>
 

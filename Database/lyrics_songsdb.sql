@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 14, 2023 at 09:54 PM
+-- Generation Time: Jan 15, 2023 at 03:37 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -34,7 +34,14 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `picture` text COLLATE utf8mb4_bin NOT NULL,
   `date_birthday` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `artists`
+--
+
+INSERT INTO `artists` (`id`, `name`, `picture`, `date_birthday`) VALUES
+(1, 'Adele', '[value-3]', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -47,7 +54,14 @@ CREATE TABLE IF NOT EXISTS `geners` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `geners`
+--
+
+INSERT INTO `geners` (`id`, `name`) VALUES
+(1, 'pop');
 
 -- --------------------------------------------------------
 
@@ -63,11 +77,18 @@ CREATE TABLE IF NOT EXISTS `songs` (
   `lyrics` text COLLATE utf8mb4_bin NOT NULL,
   `picture` text COLLATE utf8mb4_bin NOT NULL,
   `id_artist` int NOT NULL,
-  `is_gener` int NOT NULL,
+  `id_gener` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_artist` (`id_artist`),
-  KEY `is_gener` (`is_gener`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  KEY `is_gener` (`id_gener`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `songs`
+--
+
+INSERT INTO `songs` (`id`, `name`, `release_date`, `lyrics`, `picture`, `id_artist`, `id_gener`) VALUES
+(1, '[value-2]', '0000-00-00', '[value-4]', '[value-5]', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -82,9 +103,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `lastName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `picture` text COLLATE utf8mb4_bin NOT NULL,
   `rool` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `picture`, `rool`) VALUES
+(1, 'saad', 'moumou', 'saad@gmail.com', '[value-5]', '[value-6]', 1);
 
 --
 -- Constraints for dumped tables
@@ -95,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 ALTER TABLE `songs`
   ADD CONSTRAINT `songs_ibfk_1` FOREIGN KEY (`id_artist`) REFERENCES `artists` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `songs_ibfk_2` FOREIGN KEY (`is_gener`) REFERENCES `geners` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `songs_ibfk_2` FOREIGN KEY (`id_gener`) REFERENCES `geners` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

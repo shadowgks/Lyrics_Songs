@@ -14,6 +14,6 @@ class DB{
         }catch(Exception $e){
             die ('Filed To connect Db'.$e->getMessage());
         }
-        return $conn;
+        return $conn; 
     }
 }
