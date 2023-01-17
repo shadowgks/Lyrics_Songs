@@ -8,7 +8,7 @@
     <title>LYRICSONGS</title>
 
     <!-- Begin style css -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="public\assets\css\style.css" />
     <!-- End style css -->
     <!-- ================================ -->
     <!-- Begin Tailwind -->
@@ -84,7 +84,7 @@
     <section class="bg-gray-50 dark:bg-gray-900">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                <img class="w-40 h-40 mr-2" src="./assets/imgs/logo/logo lyrics_song.png" alt="logo" />
+                <img class="mr-2" src="./assets/imgs/logo/logo lyrics_song.png" alt="logo" />
             </a>
             <div
                 class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -263,7 +263,7 @@
     <!-- End flowbite js -->
     <!-- ================================ -->
     <!-- Begin file js -->
-    <script src="./assets/js/script.js"></script>
+    <script src="public\assets\js\script.js"></script>
     <!-- End file js -->
 </body>
 

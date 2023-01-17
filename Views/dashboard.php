@@ -35,7 +35,7 @@ require_once 'CRUDS/update.php';
     <!-- End fontAwesome -->
     <!-- ================================ -->
     <!-- Begin style css -->
-    <link rel="stylesheet" href="public\assets\css\style.css" />
+    <link rel="stylesheet" href="public/assets/css/style.css" />
     <!-- End style css -->
 </head>
 
@@ -304,7 +304,7 @@ require_once 'CRUDS/update.php';
         <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800 dark:border-white">
             <div class="container flex flex-wrap items-center justify-between">
                 <a href="#" class="flex items-center">
-                    <img src="./assets/imgs/logo/logo lyrics_song.png" class="h-16 sm:h-16 mr-3" alt="Flowbite Logo" />
+                    <img src="public/assets/imgs/logo/logo lyrics_song.png" class="h-16 sm:h-16 mr-3" alt="Lyrics Songs" />
                     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">DASHBOARD</span>
                 </a>
                 <div class="flex items-center md:order-2">
@@ -424,17 +424,17 @@ require_once 'CRUDS/update.php';
 
         <!-- BEGIN DATATABLE -->
         <section class="p-5 sm:p-10">
-            <!-- CLIENTS -->
+            <!-- ADMINS -->
             <div>
                 <div class="lg:text-end lg:block grid">
                     <div>
                         <h1 class="mb-4 text-4xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center md:text-start">
-                            CLIENTS
+                            ADMINS
                         </h1>
                         <hr class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
                     <button type="button" data-modal-toggle="defaultModal" id="btn_client_add" class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        ADD CLIENTS
+                        ADD ADMINS
                     </button>
                 </div>
 
@@ -446,16 +446,13 @@ require_once 'CRUDS/update.php';
                                 <th data-priority="1">id</th>
                                 <th data-priority="2">name</th>
                                 <th data-priority="3">email</th>
-                                <th data-priority="4">rool</th>
-                                <th data-priority="5">actions</th>
+                                <th data-priority="4">actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             $idU = 1;
                             foreach ($data_users as $user) {
-                                $is_admin = $user['rool'] == 1 ? 'checked' : '';
-                                $rool_name = $user['rool'] == 1 ? 'Admin' : 'User';
                                 echo '<input type="hidden" value="' . $user['id'] . '">
                                 <tr>
                                 <td>' . $idU . '</td>
@@ -463,13 +460,6 @@ require_once 'CRUDS/update.php';
                                     <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2">' . $user['firstName'] . ' ' . $user['lastName'] . '</span>
                                 </td>
                                 <td>' . $user['email'] . '</td>
-                                <td>
-                                <label class="relative inline-flex items-center mr-5 cursor-pointer">
-                                    <input type="checkbox" value="" class="sr-only peer" ' . $is_admin . '>
-                                    <div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-orange-300 dark:peer-focus:ring-orange-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-orange-500"></div>
-                                    <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">' . $rool_name . '</span>
-                                </label>
-                                </td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal" id="btn_edit_client"
                                         class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -566,8 +556,7 @@ require_once 'CRUDS/update.php';
                                 <th data-priority="3">release date</th>
                                 <th data-priority="4">lyrics</th>
                                 <th data-priority="5">Artist</th>
-                                <th data-priority="6">Gener</th>
-                                <th data-priority="7">Actions</th>
+                                <th data-priority="6">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -585,7 +574,6 @@ require_once 'CRUDS/update.php';
                                 <td>' . $song['release_date'] . '</td>
                                 <td>' . $song['lyrics'] . '</td>
                                 <td>' . $song['name_artist'] . '</td>
-                                <td>' . $song['name_gener'] . '</td>
                                 <td>
                                     <button type="button" data-modal-toggle="defaultModal" id="btn_edit_song"
                                         class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
@@ -604,17 +592,17 @@ require_once 'CRUDS/update.php';
                 </div>
                 <!--E DATATABLE -->
             </div>
-            <!-- GENER -->
+            <!-- categories -->
             <div class="my-10">
                 <div class="lg:text-end lg:block grid">
                     <div>
                         <h1 class="mb-4 text-4xl font-extrabold text-gray-900 md:text-4xl lg:text-5xl dark:text-white text-center md:text-start">
-                            GENER
+                            CATEGORIES
                         </h1>
                         <hr class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
                     <button type="button" data-modal-toggle="defaultModal" id="btn_gener_add" class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        ADD GENER
+                        ADD CATEGORIES
                     </button>
                 </div>
                 <!--B DATATABLE -->
@@ -623,7 +611,7 @@ require_once 'CRUDS/update.php';
                         <thead>
                             <tr class="uppercase">
                                 <th data-priority="1">id</th>
-                                <th data-priority="2">gener</th>
+                                <th data-priority="2">categorie</th>
                                 <th data-priority="3">Actions</th>
                             </tr>
                         </thead>
@@ -684,7 +672,7 @@ require_once 'CRUDS/update.php';
                         </div>
                         <div id="Fname">
                             <label for="Fname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                            <input type="text" name="first_name_1" class="f_name_inpute bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="first name" required="">
+                            <input type="text" name="first_name" class="f_name_inpute bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="first name" required="">
                         </div>
                         <div id="Lname">
                             <label for="Lname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>

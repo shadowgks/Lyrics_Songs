@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Jan 15, 2023 at 09:17 PM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Hôte : 127.0.0.1:3306
+-- Généré le : mar. 17 jan. 2023 à 13:56
+-- Version du serveur : 5.7.36
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,108 +18,117 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lyrics_songsdb`
+-- Base de données : `lyrics_songsdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artists`
+-- Structure de la table `admins`
+--
+
+DROP TABLE IF EXISTS `admins`;
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `lastName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `date_birthday` date NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `picture` text COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Déchargement des données de la table `admins`
+--
+
+INSERT INTO `admins` (`id`, `firstName`, `lastName`, `date_birthday`, `email`, `password`, `picture`) VALUES
+(4, 'saad', 'moumou', '1999-10-03', 'saad@gmail.com', 'saad123456b', '[value-7]');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `artists`
 --
 
 DROP TABLE IF EXISTS `artists`;
 CREATE TABLE IF NOT EXISTS `artists` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `picture` text COLLATE utf8mb4_bin NOT NULL,
   `date_birthday` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
--- Dumping data for table `artists`
+-- Déchargement des données de la table `artists`
 --
 
 INSERT INTO `artists` (`id`, `name`, `picture`, `date_birthday`) VALUES
-(1, 'Adele', '[value-3]', '0000-00-00');
+(5, 'Adele', '[value-3]', '1986-10-10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `geners`
+-- Structure de la table `categories`
 --
 
-DROP TABLE IF EXISTS `geners`;
-CREATE TABLE IF NOT EXISTS `geners` (
-  `id` int NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
--- Dumping data for table `geners`
+-- Déchargement des données de la table `categories`
 --
 
-INSERT INTO `geners` (`id`, `name`) VALUES
-(1, 'pop');
+INSERT INTO `categories` (`id`, `name`) VALUES
+(3, 'pop'),
+(4, 'rap');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `songs`
+-- Structure de la table `songs`
 --
 
 DROP TABLE IF EXISTS `songs`;
 CREATE TABLE IF NOT EXISTS `songs` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `release_date` date NOT NULL,
   `lyrics` text COLLATE utf8mb4_bin NOT NULL,
   `picture` text COLLATE utf8mb4_bin NOT NULL,
-  `id_artist` int NOT NULL,
-  `id_gener` int NOT NULL,
+  `id_artist` int(11) NOT NULL,
+  `id_cat` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_artist` (`id_artist`),
-  KEY `is_gener` (`id_gener`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  KEY `id_cat` (`id_cat`),
+  KEY `id_admin` (`id_admin`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
--- Dumping data for table `songs`
+-- Déchargement des données de la table `songs`
 --
 
-INSERT INTO `songs` (`id`, `name`, `release_date`, `lyrics`, `picture`, `id_artist`, `id_gener`) VALUES
-(1, '[value-2]', '0000-00-00', '[value-4]', '[value-5]', 1, 1);
-
--- --------------------------------------------------------
+INSERT INTO `songs` (`id`, `name`, `release_date`, `lyrics`, `picture`, `id_artist`, `id_cat`, `id_admin`) VALUES
+(3, 'Hello', '2011-10-10', '[value-4]', 'picture', 5, 3, 4);
 
 --
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  `lastName` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  `date_birthday` date NOT NULL,
-  `gender` tinyint(1) NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  `picture` text COLLATE utf8mb4_bin NOT NULL,
-  `rool` tinyint(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
---
--- Constraints for dumped tables
+-- Contraintes pour les tables déchargées
 --
 
 --
--- Constraints for table `songs`
+-- Contraintes pour la table `songs`
 --
 ALTER TABLE `songs`
-  ADD CONSTRAINT `songs_ibfk_1` FOREIGN KEY (`id_artist`) REFERENCES `artists` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `songs_ibfk_2` FOREIGN KEY (`id_gener`) REFERENCES `geners` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `songs_ibfk_1` FOREIGN KEY (`id_artist`) REFERENCES `artists` (`id`),
+  ADD CONSTRAINT `songs_ibfk_2` FOREIGN KEY (`id_cat`) REFERENCES `categories` (`id`),
+  ADD CONSTRAINT `songs_ibfk_3` FOREIGN KEY (`id_admin`) REFERENCES `admins` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

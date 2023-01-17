@@ -2,7 +2,7 @@
 
 class GenerController{
     function getAllGeners(){
-        $data_geners = Gener::getAll();
+        $data_geners = Categorie::getAll();
         return $data_geners;
     }
 }

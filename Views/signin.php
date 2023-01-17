@@ -8,7 +8,7 @@
     <title>LYRICSONGS</title>
 
     <!-- Begin style css -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="public/assets/css/style.css">
     <!-- End style css -->
     <!-- ================================ -->
     <!-- Begin Tailwind -->
@@ -235,7 +235,7 @@
     <!-- End flowbite js -->
     <!-- ================================ -->
     <!-- Begin file js -->
-    <script src="./assets/js/script.js"></script>
+    <script src="public/assets/js/script.js"></script>
     <!-- End file js -->
 </body>
 

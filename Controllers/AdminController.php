@@ -1,8 +1,8 @@
 <?php
 
-class UserController{
+class AdminController{
     function getAllUsers(){
-        $data_Users = User::getAll();
+        $data_Users = Admin::getAll();
         return $data_Users;
     }
 }

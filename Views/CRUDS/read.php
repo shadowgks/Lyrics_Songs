@@ -11,5 +11,5 @@ $data_geners = $obj_geners->getAllGeners();
 $obj_songs = new SongController();
 $data_songs = $obj_songs->getAllSongs();
 //Clients
-$obj_users = new UserController();
+$obj_users = new AdminController();
 $data_users = $obj_users->getAllUsers();

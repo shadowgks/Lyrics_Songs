@@ -37,8 +37,6 @@ const descriprion_form_modal = document.querySelector('#descriprion');
 const gender_form_modal = document.querySelector('#gender');
 
 
-f_name_inpute = form1['first_name_1'];
-
 //Function show & hide inputs forms
 function ClientsShowHide(){
   //Show
@@ -66,6 +64,7 @@ function ArtistsShowHide(){
     name_form_modal.style.display = "block";
     date_birthday_form_modal.style.display = "block";
     picture_form_modal.style.display = "block";
+    gener_form_modal.style.display = "block";
     //add Atrribute name submit data
     btn_add.setAttribute('name','add_artist');
     btn_update.setAttribute('name','update_artist');
@@ -73,7 +72,6 @@ function ArtistsShowHide(){
     password_form_modal.style.display = "none";
     c_password_form_modal.style.display = "none";
     email_form_modal.style.display = "none";
-    gener_form_modal.style.display = "none";
     artist_form_modal.style.display = "none";
     descriprion_form_modal.style.display = "none";
     gender_form_modal.style.display = "none";
@@ -86,7 +84,6 @@ function SongsShowHide(){
     name_form_modal.style.display = "block";
     picture_form_modal.style.display = "block";
     date_release_form_modal.style.display = "block";
-    gener_form_modal.style.display = "block";
     artist_form_modal.style.display = "block";
     descriprion_form_modal.style.display = "block";
     //add Atrribute name submit data
@@ -98,6 +95,7 @@ function SongsShowHide(){
     c_password_form_modal.style.display = "none";
     email_form_modal.style.display = "none";
     date_birthday_form_modal.style.display = "none";
+    gener_form_modal.style.display = "none";
 }
 function GenersShowHide(){
   //Show
@@ -131,7 +129,6 @@ btn_add_show_modal.forEach((item)=>{
 //Btn add Clients
 btn_add_show_modal[0].addEventListener("click",()=>{
   ClientsShowHide();
-  // name_form_modal.innerHTML;
 });
 //Btn add Artists
 btn_add_show_modal[1].addEventListener("click",()=>{
@@ -185,20 +182,27 @@ if(document.querySelector('#btn_edit_gener')){
 
 //Duplcate form Multiple
 let inputs_form_all_class;
+let index = 1;
+
+
 
 btn_add.addEventListener('click',()=>{
-  let index = 1;
+  
   //Form inputs
   f_name_inpute = document.querySelectorAll('.f_name_inpute');
 
   anotherdiv.append(inputs_form_id.cloneNode(true));
-  
+  // f_name_inpute.forEach((item)=>{
+  //   // console.log(item.name = "first_name_"+index++); 
+  //   // ;console.log(item);
+
+  // });
+  // f_name_inpute[index++].name = 'First_name_'+(index)+'';
+  // console.log(f_name_inpute.lastChild);
   //Node form added
   inputs_form_all_class = document.querySelectorAll('.inputs_form_all_class');
 })
-f_name_inpute.forEach((item)=>{
-  item.name = "First_name_"+index++;
-});
+
 
 //Remove data from model
 btn_close_all.forEach((item1)=>{
