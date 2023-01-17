@@ -30,7 +30,15 @@ const cat_form_modal = document.querySelector('#categorie');
 const artist_form_modal = document.querySelector('#artist');
 const descriprion_form_modal = document.querySelector('#descriprion');
 
-const names_inpute = document.querySelectorAll('.input_names');
+// const names_inpute = document.querySelectorAll('.input_names');
+const input_names = document.querySelector('.input_names');
+const input_pictures = document.querySelector('.input_pictures');
+const select_categories = document.querySelector('.select_categories');
+const select_artists = document.querySelector('.select_artists');
+const input_release_date = document.querySelector('.input_release_date');
+const input_birthday_date = document.querySelector('.input_birthday_date');
+const input_description = document.querySelector('.input_description');
+
 
 //Function show & hide inputs forms
 function ArtistsShowHide(){
@@ -38,15 +46,25 @@ function ArtistsShowHide(){
     name_form_modal.style.display = "block";
     date_birthday_form_modal.style.display = "block";
     picture_form_modal.style.display = "block";
-
     //add Atrribute name submit data
     btn_create.setAttribute('name','add_artist');
     btn_update.setAttribute('name','update_artist');
+    //inputs set required
+    input_names.setAttribute('required','');
+    input_birthday_date.setAttribute('required','');
+    input_pictures.setAttribute('required','');
+
   //hide
     cat_form_modal.style.display = "none";
     artist_form_modal.style.display = "none";
     descriprion_form_modal.style.display = "none";
     date_release_form_modal.style.display = "none";
+    //inputs remove required
+    input_release_date.removeAttribute('required');
+    input_description.removeAttribute('required');
+    select_categories.removeAttribute('required');
+    select_artists.removeAttribute('required',);
+
 }
 function SongsShowHide(){
   //Show
@@ -56,21 +74,32 @@ function SongsShowHide(){
     artist_form_modal.style.display = "block";
     descriprion_form_modal.style.display = "block";
     cat_form_modal.style.display = "block";
-
     //add Atrribute name submit data
-    btn_add.setAttribute('name','add_song');
+    btn_create.setAttribute('name','add_song');
     btn_update.setAttribute('name','update_song');
+    //inputs set required
+    input_names.setAttribute('required','');
+    input_pictures.setAttribute('required','');
+    input_release_date.setAttribute('required','');
+    input_description.setAttribute('required','');
+    select_categories.setAttribute('required','');
+    select_artists.setAttribute('required','');
+    
   //hide
     date_birthday_form_modal.style.display = "none";
+    //inputs remove required
+    input_birthday_date.removeAttribute('required');
     
 }
 function GenersShowHide(){
   //Show
     name_form_modal.style.display = "block";
-    
     //add Atrribute name submit data
-    btn_add.setAttribute('name','add_gener');
+    btn_create.setAttribute('name','add_gener');
     btn_update.setAttribute('name','update_gener');
+    //inputs set required
+    input_names.setAttribute('required','');
+
   //hide
     picture_form_modal.style.display = "none";
     date_release_form_modal.style.display = "none";
@@ -78,6 +107,13 @@ function GenersShowHide(){
     cat_form_modal.style.display = "none";
     artist_form_modal.style.display = "none";
     descriprion_form_modal.style.display = "none";
+    //inputs remove required
+    input_pictures.removeAttribute('required');
+    select_categories.removeAttribute('required');
+    select_artists.removeAttribute('required');
+    input_release_date.removeAttribute('required');
+    input_birthday_date.removeAttribute('required');
+    input_description.removeAttribute('required');
 }
 //loop btn add show modal 
 let index = 1;
@@ -120,13 +156,7 @@ btn_edit_show_modal.forEach((item)=>{
   });
 });
 
-//Condition if buttons edit items exist or not
-if(document.querySelector('#btn_edit_client')){
-  //Btn add Clients
-  document.querySelector('#btn_edit_client').addEventListener("click",()=>{
-    ClientsShowHide();
-  });
-}
+
 if(document.querySelector('#btn_edit_artist')){
   //Btn add Artists
   document.querySelector('#btn_edit_artist').addEventListener("click",()=>{
@@ -164,12 +194,11 @@ btn_add.addEventListener('click',()=>{
 //Remove data from model
 btn_close_all.forEach((item1)=>{
   item1.addEventListener('click',()=>{
-    
     //loop all div is clone the form
-    inputs_form_all_class.forEach((item,index)=>{
-        if(index!=0){
+      inputs_form_all_class.forEach((item,count)=>{
+        if(count!=0){
           item.remove();
-          index=0;
+          // index=0;
         }
     });
   })

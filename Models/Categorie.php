@@ -10,8 +10,10 @@ class Categorie{
 
     //create
     static function add($data){
-        $stm = DB::connectDB()->prepare("INSERT INTO `categories`(`name`) VALUES (?)");
-        $exe = $stm->execute([$data['name']]);
+        for($i=0; $i<count($data['name_gener']); $i++){
+            $stm = DB::connectDB()->prepare("INSERT INTO `categories`(`name`) VALUES (?)");
+            $exe = $stm->execute([$data['name_gener'][$i]]);
+        }
         if($exe){
             return true;
         }else{

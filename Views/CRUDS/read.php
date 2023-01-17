@@ -5,7 +5,7 @@
 $obj_artists = new ArtistController();
 $data_artists = $obj_artists->getAllArtists();
 //Geners
-$obj_geners = new GenerController;
+$obj_geners = new CategorieController();
 $data_geners = $obj_geners->getAllGeners();
 //Songs
 $obj_songs = new SongController();
