@@ -433,9 +433,6 @@ require_once 'CRUDS/update.php';
                         </h1>
                         <hr class="w-48 h-1 my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-orange-500 m-auto md:m-0" />
                     </div>
-                    <button type="button" data-modal-toggle="defaultModal" id="btn_client_add" class="add_show_modal text-center text-white bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 shadow-lg shadow-orange-500/50 dark:shadow-lg dark:shadow-orange-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        ADD ADMINS
-                    </button>
                 </div>
 
                 <!--B DATATABLE -->
@@ -446,7 +443,6 @@ require_once 'CRUDS/update.php';
                                 <th data-priority="1">id</th>
                                 <th data-priority="2">name</th>
                                 <th data-priority="3">email</th>
-                                <th data-priority="4">actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -460,14 +456,6 @@ require_once 'CRUDS/update.php';
                                     <img class="w-12 h-12 rounded-full" src="public/assets/imgs/songs/adele_hello.jpg" alt="#"> <span class="ml-2">' . $user['firstName'] . ' ' . $user['lastName'] . '</span>
                                 </td>
                                 <td>' . $user['email'] . '</td>
-                                <td>
-                                    <button type="button" data-modal-toggle="defaultModal" id="btn_edit_client"
-                                        class="edit_show_modal text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
-                                        class="fa-solid fa-pen-to-square"></i></button>
-                                    <button type="button" data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                        class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"><i
-                                        class="fa-solid fa-trash"></i></button>
-                                </td>
                             </tr>';
                                 $idU++;
                             }
@@ -668,67 +656,37 @@ require_once 'CRUDS/update.php';
                     <div class="inputs_form_all_class grid gap-4 mb-4 sm:grid-cols-2" id="inputs_form_id">
                         <div id="name">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-                            <input type="text" name="name_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="name" required="">
-                        </div>
-                        <div id="Fname">
-                            <label for="Fname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                            <input type="text" name="first_name" class="f_name_inpute bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="first name" required="">
-                        </div>
-                        <div id="Lname">
-                            <label for="Lname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
-                            <input type="text" name="last_name_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="last name" required="">
-                        </div>
-                        <div id="email">
-                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                            <input type="text" name="email_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="email" required="">
-                        </div>
-                        <div id="gender">
-                            <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input id="bordered-radio-1" type="radio" value="0" name="gender_1" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="bordered-radio-1" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
-                            </div>
-                            <div class="flex items-center pl-4 border border-gray-200 rounded dark:border-gray-700">
-                                <input checked id="bordered-radio-2" type="radio" value="1" name="gender_1" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="bordered-radio-2" class="w-full py-4 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
-                            </div>
-                        </div>
-                        <div id="password">
-                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" name="password_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="password" required="">
-                        </div>
-                        <div id="c_password">
-                            <label for="c_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirme Password</label>
-                            <input type="password" name="c_password_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="confirme password" required="">
+                            <input type="text" name="name_1" class="input_names bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="name" required="">
                         </div>
                         <div id="picture">
                             <label for="picture" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Picture</label>
-                            <input name="picture_1" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" accept=".jpg,.jpeg,.png" required="">
+                            <input name="" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file" accept=".jpg,.jpeg,.png" required="">
                         </div>
-                        <div id="gener">
-                            <label for="gener" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gener</label>
-                            <select name="gener_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="" disabled>Select gener</option>
+                        <div id="categorie">
+                            <label for="categorie" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categorie</label>
+                            <select name="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option selected="" disabled>Select categorie</option>
                                 <option value="">Stay</option>
                             </select>
                         </div>
                         <div id="artist">
                             <label for="artist" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Artist</label>
-                            <select name="artist_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                            <select name="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                 <option selected="" disabled>Select artist</option>
                                 <option value="">Stay</option>
                             </select>
                         </div>
                         <div id="birthday_date">
                             <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date Birthday</label>
-                            <input type="date" name="date_birthday_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="date birthday" required="">
+                            <input type="date" name="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="date birthday" required="">
                         </div>
                         <div id="release_date">
                             <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Release Date</label>
-                            <input type="date" name="release_date_1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="date release" required="">
+                            <input type="date" name="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="date release" required="">
                         </div>
                         <div class="sm:col-span-2" id="descriprion">
                             <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Lyrics</label>
-                            <textarea id="description" rows="10" name="lyrics_1" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write product description here"></textarea>
+                            <textarea id="description" rows="10" name="" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Write product description here"></textarea>
                         </div>
                         <hr class="h-1 my-4 bg-gray-100 border-0 rounded md:mt-10 dark:bg-orange-500 m-auto md:m-0">
                     </div>
