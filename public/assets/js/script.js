@@ -40,7 +40,7 @@ function ArtistsShowHide(){
     picture_form_modal.style.display = "block";
 
     //add Atrribute name submit data
-    btn_add.setAttribute('name','add_artist');
+    btn_create.setAttribute('name','add_artist');
     btn_update.setAttribute('name','update_artist');
   //hide
     cat_form_modal.style.display = "none";
@@ -89,9 +89,10 @@ btn_add_show_modal.forEach((item)=>{
     form1.reset();
 
     //loop namas inputs
-    names_inpute.forEach(element => {
-      element.name = 'name_'+index++;
-    });
+    // names_inpute.forEach(element => {
+    //   element.name = 'name_'+index++;
+    // });
+    // form1.name[index] = 's'+index++;
   });
 });
 
@@ -147,16 +148,16 @@ if(document.querySelector('#btn_edit_gener')){
 
 
 //Duplcate form Multiple
-
 let inputs_form_all_class;
 btn_add.addEventListener('click',()=>{
-  anotherdiv.append(inputs_form_id.cloneNode(true));
-  names_inpute.forEach((element) => {  
-    element.name = 'name_'+index;
-    index++;  
-  });
   //Node form added
   inputs_form_all_class = document.querySelectorAll('.inputs_form_all_class');
+  anotherdiv.append(inputs_form_id.cloneNode(true));
+  // names_inpute.forEach((element) => {  
+  //   element.name = 'name_'+index++;
+  // });
+  // form1.name[index] = 's'+index;
+  // index++;
 })
 
 
@@ -164,12 +165,12 @@ btn_add.addEventListener('click',()=>{
 btn_close_all.forEach((item1)=>{
   item1.addEventListener('click',()=>{
     
+    //loop all div is clone the form
     inputs_form_all_class.forEach((item,index)=>{
         if(index!=0){
           item.remove();
           index=0;
         }
     });
-    index=1
   })
 });
